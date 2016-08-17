@@ -1,0 +1,20 @@
+import re
+string = '2014-9-1T12:48:32T218.'
+time_stamp = {}
+date_stamp = {}
+
+
+match_date=re.search(r'(\d+-\d+-\d+)',string)
+match_time=re.search(r'(\d+:\d+:\d+)',string)
+date = match_date.group(1)
+time = match_time.group(1)
+splited_date = date.split("-")
+splited_time = time.split(":")
+date_stamp.update({"year":splited_date[0]})
+date_stamp.update({"month":splited_date[1]})
+date_stamp.update({"day":splited_date[2]})
+time_stamp.update({"hour":splited_time[0]})
+time_stamp.update({"min":splited_time[1]})
+time_stamp.update({"sec":splited_time[2]})
+print(date_stamp)
+print(time_stamp)
